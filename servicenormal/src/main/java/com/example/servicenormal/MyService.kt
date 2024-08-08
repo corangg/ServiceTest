@@ -54,7 +54,9 @@ class MyService : Service() {
     }
 
     private suspend fun insertData(data: Int) {
-        val dataValue = Data(data)
+        val dateTime =  getDateTime()
+        val dataValue = Data(data,dateTime)
+
         userDao.insert(dataValue)
     }
 }

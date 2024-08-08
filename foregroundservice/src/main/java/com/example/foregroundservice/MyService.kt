@@ -20,9 +20,9 @@ class MyService : Service() {
 
     private val runnable = object : Runnable {
         override fun run() {
-            CoroutineScope(Dispatchers.IO).launch{
+            CoroutineScope(Dispatchers.IO).launch {
                 var count = 0
-                while (true){
+                while (true) {
                     insertData(count)
                     count += 1
                     delay(60000)
@@ -58,7 +58,8 @@ class MyService : Service() {
     }
 
     private suspend fun insertData(data: Int) {
-        val dataValue = Data(data)
+        val dateTime = getDateTime()
+        val dataValue = Data(data, dateTime)
         userDao.insert(dataValue)
     }
 

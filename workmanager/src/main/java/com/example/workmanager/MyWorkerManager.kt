@@ -7,7 +7,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
-class MyWorkerManager(context: Context, workerParams: WorkerParameters) : CoroutineWorker(context, workerParams) {
+class MyWorkerManager(context: Context, workerParams: WorkerParameters) :
+    CoroutineWorker(context, workerParams) {
 
     private val database: UserRoomDatabase = UserRoomDatabase.getDatabase(context)
     private val userDao: UserDao = database.userDao()
@@ -26,7 +27,8 @@ class MyWorkerManager(context: Context, workerParams: WorkerParameters) : Corout
 
     private suspend fun insertData(data: Int) {
         withContext(Dispatchers.IO) {
-            val dataValue = Data(data)
+            val dateTime = getDateTime()
+            val dataValue = Data(data, dateTime)
             userDao.insert(dataValue)
         }
     }

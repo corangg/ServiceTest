@@ -15,7 +15,8 @@ import androidx.room.RoomDatabase
 
 @Entity
 data class Data(
-    @PrimaryKey val id: Int
+    @PrimaryKey val id: Int,
+    val time : String
 )
 
 @Dao

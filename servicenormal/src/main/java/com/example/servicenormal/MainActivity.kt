@@ -18,7 +18,6 @@ import kotlinx.coroutines.withContext
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
 
-
     private lateinit var database: UserRoomDatabase
     private lateinit var userDao: UserDao
 

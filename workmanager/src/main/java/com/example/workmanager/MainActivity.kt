@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.lifecycleScope
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
@@ -41,7 +42,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun startWorkerManager(){
         val workRequest = PeriodicWorkRequestBuilder<MyWorkerManager>(1, TimeUnit.MINUTES)
-            .setInputData(workDataOf("count" to 0))
             .build()
 
         WorkManager.getInstance(this).enqueueUniquePeriodicWork(

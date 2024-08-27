@@ -15,6 +15,7 @@ class TenThousandFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val startTime = System.nanoTime()
+        logMemoryUsage("Before creating layouts")
 
         val rootLayout = LinearLayout(requireContext()).apply {
             orientation = LinearLayout.VERTICAL
@@ -26,7 +27,7 @@ class TenThousandFragment : Fragment() {
         var index = 0
         var currentLayout: LinearLayout = rootLayout
         try {
-          for(i in 0.. 1000){
+          for(i in 0.. 250){
               val newLayout = LinearLayout(requireContext()).apply {
                   orientation = LinearLayout.VERTICAL
                   layoutParams = LinearLayout.LayoutParams(
@@ -38,6 +39,10 @@ class TenThousandFragment : Fragment() {
 
               currentLayout.addView(newLayout)
               currentLayout = newLayout
+
+              if (i % 10 == 0) {
+                  logMemoryUsage("After $i layouts created")
+              }
           }
         } catch (e: Exception){
             Log.d("LinearLayoutDrawTime", "LinearLayout and draw Fail: $index")
@@ -54,7 +59,20 @@ class TenThousandFragment : Fragment() {
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
         })
-
+        logMemoryUsage("After all layouts created")
         return rootLayout
+    }
+
+    private fun logMemoryUsage(tag: String) {
+        val runtime = Runtime.getRuntime()
+        val usedMemory = (runtime.totalMemory() - runtime.freeMemory()) / 1024 / 1024 // MB 단위
+        val freeMemory = runtime.freeMemory() / 1024 / 1024 // MB 단위
+        val totalMemory = runtime.totalMemory() / 1024 / 1024 // MB 단위
+        val maxMemory = runtime.maxMemory() / 1024 / 1024 // MB 단위
+
+        Log.d(
+            "MemoryMonitoring",
+            "$tag: Used Memory = $usedMemory MB, Free Memory = $freeMemory MB, Total Memory = $totalMemory MB, Max Memory = $maxMemory MB"
+        )
     }
 }

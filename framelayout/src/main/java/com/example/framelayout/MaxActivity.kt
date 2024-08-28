@@ -1,9 +1,9 @@
-package com.example.linearlayout
+package com.example.framelayout
 
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewTreeObserver
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,23 +16,21 @@ class MaxActivity : AppCompatActivity() {
         val startTime = System.nanoTime()
         var index = 0
 
-        val rootLayout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
+        val rootLayout = FrameLayout(this).apply {
+            layoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
             )
         }
 
-        var currentLayout: LinearLayout = rootLayout
+        var currentLayout: FrameLayout = rootLayout
 
         try {
-            for(i in 0.. 243){//max243
-                val newLayout = LinearLayout(this).apply {
-                    orientation = LinearLayout.VERTICAL
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT
+            for (i in 1..244) {//max 244
+                val newLayout = FrameLayout(this).apply {
+                    layoutParams = FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT,
+                        FrameLayout.LayoutParams.MATCH_PARENT
                     )
                 }
                 index = i
@@ -44,19 +42,19 @@ class MaxActivity : AppCompatActivity() {
                     logMemoryUsage("After $i layouts created")
                 }
             }
-        } catch (e: Exception){
-            Log.d("LinearLayoutDrawTime", "LinearLayout draw Fail: $index")
+        }catch (e: Exception){
+            Log.d("FrameLayoutDrawTime", "FrameLayout draw Fail: $index")
         }
 
         val endTime = System.nanoTime()
 
         val duration = endTime - startTime
-        Log.d("LinearLayoutDrawTime", "Max LinearLayout create time: $duration ns")
+        Log.d("FrameLayoutDrawTime", "Hundred FrameLayout create time: $duration ns")
         currentLayout.addView(TextView(this).apply {
-            text = "Max LinearLayout create time: $duration ns"
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+            text = "Max FrameLayout create time: $duration ns"
+            layoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT
             )
         })
 
@@ -66,20 +64,21 @@ class MaxActivity : AppCompatActivity() {
                 rootLayout.viewTreeObserver.removeOnPreDrawListener(this)
                 val totalDuration = System.nanoTime() - startTime
                 Log.d(
-                    "LinearLayoutDrawTime",
-                    "Max LinearLayout draw time: $totalDuration ns"
+                    "FrameLayoutDrawTime",
+                    "Max FrameLayout draw time: $totalDuration ns"
                 )
 
                 // 화면에 표시되는 시간 텍스트뷰 추가
                 currentLayout.addView(TextView(this@MaxActivity).apply {
-                    text = "Max LinearLayout draw time: $totalDuration ns"
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    text = "Max FrameLayout draw time: $totalDuration ns"
+                    layoutParams = FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.WRAP_CONTENT,
+                        FrameLayout.LayoutParams.WRAP_CONTENT
                     ).apply {
                         setMargins(0, 60, 0, 0)
                     }
                 })
+
                 return true
             }
         })

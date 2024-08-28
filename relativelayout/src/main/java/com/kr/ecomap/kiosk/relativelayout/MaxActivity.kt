@@ -1,9 +1,9 @@
-package com.example.linearlayout
+package com.kr.ecomap.kiosk.relativelayout
 
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewTreeObserver
-import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,23 +16,20 @@ class MaxActivity : AppCompatActivity() {
         val startTime = System.nanoTime()
         var index = 0
 
-        val rootLayout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
+        val rootLayout = RelativeLayout(this).apply {
+            layoutParams = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT
             )
         }
 
-        var currentLayout: LinearLayout = rootLayout
-
+        var currentLayout: RelativeLayout = rootLayout
         try {
-            for(i in 0.. 243){//max243
-                val newLayout = LinearLayout(this).apply {
-                    orientation = LinearLayout.VERTICAL
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT
+            for (i in 1..2400000) {
+                val newLayout = RelativeLayout(this).apply {
+                    layoutParams = RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.MATCH_PARENT,
+                        RelativeLayout.LayoutParams.MATCH_PARENT
                     )
                 }
                 index = i
@@ -44,19 +41,18 @@ class MaxActivity : AppCompatActivity() {
                     logMemoryUsage("After $i layouts created")
                 }
             }
-        } catch (e: Exception){
-            Log.d("LinearLayoutDrawTime", "LinearLayout draw Fail: $index")
+        }catch (e:Exception){
+            Log.d("RelativeLayoutDrawTime", "RelativeLayout draw Fail: $index")
         }
 
-        val endTime = System.nanoTime()
-
-        val duration = endTime - startTime
-        Log.d("LinearLayoutDrawTime", "Max LinearLayout create time: $duration ns")
+        val duration = System.nanoTime() - startTime
+        //뷰 생성 시간 측정
+        Log.d("RelativeLayoutDrawTime", "Max RelativeLayout create time: $duration ns")
         currentLayout.addView(TextView(this).apply {
-            text = "Max LinearLayout create time: $duration ns"
-            layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+            text = "Max RelativeLayout create time: $duration ns"
+            layoutParams = RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
             )
         })
 
@@ -66,24 +62,24 @@ class MaxActivity : AppCompatActivity() {
                 rootLayout.viewTreeObserver.removeOnPreDrawListener(this)
                 val totalDuration = System.nanoTime() - startTime
                 Log.d(
-                    "LinearLayoutDrawTime",
-                    "Max LinearLayout draw time: $totalDuration ns"
+                    "RelativeLayoutDrawTime",
+                    "Max RelativeLayout draw time: $totalDuration ns"
                 )
 
                 // 화면에 표시되는 시간 텍스트뷰 추가
                 currentLayout.addView(TextView(this@MaxActivity).apply {
-                    text = "Max LinearLayout draw time: $totalDuration ns"
-                    layoutParams = LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.WRAP_CONTENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    text = "Max RelativeLayout draw time: $totalDuration ns"
+                    layoutParams = RelativeLayout.LayoutParams(
+                        RelativeLayout.LayoutParams.WRAP_CONTENT,
+                        RelativeLayout.LayoutParams.WRAP_CONTENT
                     ).apply {
                         setMargins(0, 60, 0, 0)
                     }
                 })
+
                 return true
             }
         })
-
         setContentView(rootLayout)
     }
 

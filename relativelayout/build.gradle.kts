@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.linearlayout"
+    namespace = "com.kr.ecomap.kiosk.relativelayout"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.linearlayout"
+        applicationId = "com.kr.ecomap.kiosk.relativelayout"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

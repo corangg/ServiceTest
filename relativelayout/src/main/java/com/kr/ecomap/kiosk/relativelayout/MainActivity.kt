@@ -1,12 +1,17 @@
-package com.example.linearlayout
+package com.kr.ecomap.kiosk.relativelayout
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
-import com.example.linearlayout.databinding.ActivityMainBinding
+import com.kr.ecomap.kiosk.relativelayout.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,11 +26,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnHundredLayout.setOnClickListener {
             val intent = Intent(this, HundredActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.btnMaxLayout.setOnClickListener {
-            val intent = Intent(this, MaxActivity::class.java)
             startActivity(intent)
         }
     }

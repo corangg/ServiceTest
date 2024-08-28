@@ -27,7 +27,7 @@ class TenThousandFragment : Fragment() {
         var index = 0
         var currentLayout: LinearLayout = rootLayout
         try {
-          for(i in 0.. 250){
+          for(i in 0.. 241){
               val newLayout = LinearLayout(requireContext()).apply {
                   orientation = LinearLayout.VERTICAL
                   layoutParams = LinearLayout.LayoutParams(
@@ -65,10 +65,10 @@ class TenThousandFragment : Fragment() {
 
     private fun logMemoryUsage(tag: String) {
         val runtime = Runtime.getRuntime()
-        val usedMemory = (runtime.totalMemory() - runtime.freeMemory()) / 1024 / 1024 // MB 단위
-        val freeMemory = runtime.freeMemory() / 1024 / 1024 // MB 단위
-        val totalMemory = runtime.totalMemory() / 1024 / 1024 // MB 단위
-        val maxMemory = runtime.maxMemory() / 1024 / 1024 // MB 단위
+        val usedMemory = (runtime.totalMemory() - runtime.freeMemory()) / 1024 / 1024
+        val freeMemory = runtime.freeMemory() / 1024 / 1024
+        val totalMemory = runtime.totalMemory() / 1024 / 1024
+        val maxMemory = runtime.maxMemory() / 1024 / 1024
 
         Log.d(
             "MemoryMonitoring",

@@ -9,9 +9,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Test">
         <activity
-            android:name=".MaxActivity"
-            android:exported="false" />
-        <activity
             android:name=".HundredActivity"
             android:exported="false" />
         <activity

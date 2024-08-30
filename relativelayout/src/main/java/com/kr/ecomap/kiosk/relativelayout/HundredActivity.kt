@@ -24,7 +24,7 @@ class HundredActivity : AppCompatActivity() {
         }
 
         var currentLayout: RelativeLayout = rootLayout
-        for (i in 1..24) {
+        for (i in 1..100) {
             val newLayout = RelativeLayout(this).apply {
                 layoutParams = RelativeLayout.LayoutParams(
                     RelativeLayout.LayoutParams.MATCH_PARENT,

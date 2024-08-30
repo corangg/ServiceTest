@@ -25,7 +25,7 @@ class MaxActivity : AppCompatActivity() {
 
         var currentLayout: RelativeLayout = rootLayout
         try {
-            for (i in 1..2400000) {
+            for (i in 1..100000) {
                 val newLayout = RelativeLayout(this).apply {
                     layoutParams = RelativeLayout.LayoutParams(
                         RelativeLayout.LayoutParams.MATCH_PARENT,

@@ -26,7 +26,7 @@ class MaxActivity : AppCompatActivity() {
         var currentLayout: FrameLayout = rootLayout
 
         try {
-            for (i in 1..244) {//max 244
+            for (i in 1..110000) {//max 244
                 val newLayout = FrameLayout(this).apply {
                     layoutParams = FrameLayout.LayoutParams(
                         FrameLayout.LayoutParams.MATCH_PARENT,

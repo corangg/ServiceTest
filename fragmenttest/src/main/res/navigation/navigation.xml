@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/oneFragment">
+
+    <fragment
+        android:id="@+id/oneFragment"
+        android:name="com.kr.ecomap.kiosk.fragmenttest.OneFragment"
+        android:label="oneFragment"
+        tools:layout="@layout/fragment_one">
+        <action
+            android:id="@+id/actionOneFragmentToTwoFragment"
+            app:destination="@+id/twoFragment">
+            <argument
+                android:name="data"
+                app:argType="integer" />
+
+            <argument
+                android:name="time"
+                app:argType="long" />
+        </action>
+
+        <action
+            android:id="@+id/actionOneFragmentToThreeFragment"
+            app:destination="@+id/threeFragment" />
+
+        <argument
+            android:name="data"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
+        <argument
+            android:name="time"
+            app:argType="long"
+            android:defaultValue="0L"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/twoFragment"
+        android:name="com.kr.ecomap.kiosk.fragmenttest.TwoFragment"
+        android:label="twoFragment"
+        tools:layout="@layout/fragment_two">
+        <action
+            android:id="@+id/actionTwoFragmentToThreeFragment"
+            app:destination="@+id/threeFragment" />
+
+        <action
+            android:id="@+id/actionTwoFragmentToOneFragment"
+            app:destination="@+id/oneFragment">
+            <argument
+                android:name="data"
+                app:argType="integer" />
+
+            <argument
+                android:name="time"
+                app:argType="long" />
+        </action>
+        <argument
+            android:name="data"
+            app:argType="integer"
+            android:defaultValue="0"/>
+
+        <argument
+            android:name="time"
+            app:argType="long"
+            android:defaultValue="0L"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/threeFragment"
+        android:name="com.kr.ecomap.kiosk.fragmenttest.ThreeFragment"
+        android:label="threeFragment"
+        tools:layout="@layout/fragment_three">
+        <action
+            android:id="@+id/actionThreeFragmentToOneFragment"
+            app:destination="@+id/oneFragment" />
+
+        <action
+            android:id="@+id/actionThreeFragmentToTwoFragment"
+            app:destination="@+id/twoFragment" />
+    </fragment>
+</navigation>

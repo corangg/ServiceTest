@@ -27,7 +27,7 @@ class MaxActivity : AppCompatActivity() {
         var currentLayout: LinearLayout = rootLayout
 
         try {
-            for(i in 0.. 243){//max243
+            for(i in 0.. 110000){//max243
                 val newLayout = LinearLayout(this).apply {
                     orientation = LinearLayout.VERTICAL
                     layoutParams = LinearLayout.LayoutParams(

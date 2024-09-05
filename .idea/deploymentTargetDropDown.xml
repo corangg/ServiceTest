@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="deploymentTargetDropDown">
+    <value>
+      <entry key="activitytest">
+        <State />
+      </entry>
+      <entry key="app">
+        <State />
+      </entry>
+      <entry key="constraintlayout">
+        <State />
+      </entry>
+      <entry key="foregroundservice">
+        <State />
+      </entry>
+      <entry key="fragmenttest">
+        <State />
+      </entry>
+      <entry key="framelayout">
+        <State />
+      </entry>
+      <entry key="keybordtest">
+        <State />
+      </entry>
+      <entry key="linearlayout">
+        <State />
+      </entry>
+      <entry key="listview">
+        <State />
+      </entry>
+      <entry key="maxfragmenttest">
+        <State />
+      </entry>
+      <entry key="relativelayout">
+        <State />
+      </entry>
+      <entry key="servicenormal">
+        <State />
+      </entry>
+      <entry key="workmanager">
+        <State />
+      </entry>
+    </value>
+  </component>
+</project>

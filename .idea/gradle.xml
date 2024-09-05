@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/activitytest" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/constraintlayout" />
+            <option value="$PROJECT_DIR$/foregroundservice" />
+            <option value="$PROJECT_DIR$/fragmenttest" />
+            <option value="$PROJECT_DIR$/framelayout" />
+            <option value="$PROJECT_DIR$/linearlayout" />
+            <option value="$PROJECT_DIR$/listview" />
+            <option value="$PROJECT_DIR$/maxfragmenttest" />
+            <option value="$PROJECT_DIR$/relativelayout" />
+            <option value="$PROJECT_DIR$/servicenormal" />
+            <option value="$PROJECT_DIR$/workmanager" />
+          </set>
+        </option>
+        <option name="resolveExternalAnnotations" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
